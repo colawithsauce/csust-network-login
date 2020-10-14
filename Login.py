@@ -2,7 +2,9 @@
 import socket
 import datetime
 import re
+import argparse
 import requests
+import getpass
 
 
 def checkAccessWAN():
@@ -32,7 +34,10 @@ def login(name, password):
             a = requests.get(url=url, allow_redirects=False, timeout=5)
             url2 = a.headers['Location']
 
-            # TODO: 试图使用更加好的方法来直接替换
+            # 使用浏览器调试的时候知道，登陆数据不是直接传给url2的，而是传给
+            # post_url的，192.168.7.221的801口的 eportal，且格式也是更改了的，
+            # eportal可能是后端API吧，就是那种将再在服务器上另外开发的方法，而不
+            # 是在后端中处理。
             b = str(url2).split('&')
             wlanuserip = ''
             wlanacname = ''
@@ -82,3 +87,29 @@ def login(name, password):
     else:
         print("[00] {} Device login".format(
             datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+
+
+if __name__ == "__main__":
+    # TODO: add surpport read from json
+    parser = argparse.ArgumentParser(description="CSUST campus network login")
+
+    parser.add_argument('username', action="store", help="Your School ID你的学号")
+    parser.add_argument(
+        '-p',
+        '--password',
+        action="store",
+        help=
+        """
+        (optional) Your Internet password. Can also set from input invisibly.
+        (可选)你的密码，可以稍后从输入用不显示的方法读取"""
+    )
+
+    options = parser.parse_args()
+    password = options.password
+    username = options.username
+
+    if not password:
+        passwd = getpass.getpass("Input your password:")
+
+    if username:
+        login(username, password)
