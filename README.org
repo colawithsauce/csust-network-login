@@ -1,0 +1,79 @@
+#+TITLE: 长沙理工大学校园网登陆
+
+* 应用场景
+1. 懒人不想直接打开浏览器连网，想一键连
+2. 玩树莓派但是没有下载图形界面版的系统，手机又没有多少流量。
+3. 安装Archlinux或者Gentoo之类的Linux发行版的时候手机没有多少流量了。
+4. 觉得一键登录校园网好玩
+* 功能
+1. 首次设置之后可以根据生成的配置文件自动登陆
+2. 配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
+
+* 使用方法
+** Windows
+首先根安装python，可以自己百度如何安装。
+
+#+begin_quote
+然后用文件管理器打开这个文件夹，然后在文件导航栏（就像浏览器的网址栏，是显示目前
+的文件夹位置的地方，比如说 ~D:\ > SourceCodes > Python~ ）里面输入cmd或者
+lllllpowershell回车，进入命令行。
+
+如果是第一次使用，可以直接如下输入
+
+D:\SourceCodes\Python\csust-network-login> .\log2network.py 
+
+
+如果想更改一下登陆的用户名或者密码，可以输入
+
+D:\SourceCodes\Python\csust-network-login> .\log2network.py -n
+
+也可以输入 -h 来获取帮助
+
+D:\SourceCodes\Python\csust-network-login> .\log2network.py -h
+#+end_quote
+
+上面的方法太过于麻烦，简单粗暴的方法就是直接双击运行，然后在按照提示输入学号与用
+户名。
+
+如果输入错误或者想要更换号码，就把目录下面的 =loginData.json= 删除再双击运行。
+
+程序会生成两个文件
+- loginData.json 配置文件，存储了学号与密码
+- login.log 是日志文件，记录了登陆的记录
+
+如果设置好了默认打开方法，就可以双击联网了。
+** MacOS
+没有用过MacOS，但是应该和Linux差不多，可以通过双击运行也可以直接命令行运行。
+
+打开终端，通过cd进入这个目录，这是一个Python程序，可以跨平台使用，所以使用方法和
+windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linux里面的斜杠是正斜
+杠，在 ~右Shift~ 的左边那个按键上面，例如下面这样：
+
+#+begin_quote
+~/csust-network-login $ ./log2network.py
+#+end_quote
+
+也可以尝试一下双击运行，参考上面说的windows平台上面的使用方法。
+** Linux
+用Linux的学弟学妹可以考虑看看源代码，里面的逻辑非常简单，就是有两个地方有一点麻
+烦：
+1. 登录url的获取：
+
+   虽然迷糊了好久，但是幸好有学长的代码可以借鉴: [[https://github.com/linfangzhi/CSUST_network_auto_login][学长的repo]]，我终于写出来了。
+
+   登录的时候，网址可以看到是192.168.7.221，而后面还有一大堆东西，那些东西是登录
+   的关键信息，必须和目前上网设备的信息一致，但是导航栏上面的网址并不是POST的网
+   址，目标网址要按F12点Network，然后点登陆，打开出现的POST一栏，就可以看到这个
+   url了。
+
+   上面那段写了好久都没有写通顺，不如大家自己去上网登录窗口按F12，然后点Network，
+   再点击登陆，看看POST请求的内容就清楚了。
+2. base64加密：
+
+   python 的 base64 函数的输入参数与返回值都是bytes类型，而密码是str类型，而写入
+   json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
+   
+然后写一个更好的让我用233。
+* 感谢
+[[https://github.com/linfangzhi/CSUST_network_auto_login][学长的repo]]
+
