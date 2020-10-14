@@ -27,23 +27,31 @@
 的文件夹位置的地方，比如说 ~D:\ > SourceCodes > Python~ ）里面输入cmd或者
 powershell回车，进入命令行。
 
+Windows 的命令提示符长这样子：
+
+#+begin_example
+D:\SourceCodes\Python\csust-network-login>
+#+end_example
+大于号的左边是当前的目录，而右边就是我们输入命令的地方，下面我将命令提示符也写出
+来了，为了方便表示，如果要用这个方法，只输入大于符号右边的东西就可以了。
+
 如果是第一次使用，可以直接如下输入
 
-#+begin_src cmd
-D:\SourceCodes\Python\csust-network-login> .\log2network.py 
-#+end_src
+#+begin_example
+D:\SourceCodes\Python\csust-network-login> python .\log2network.py
+#+end_example
 
 如果想更改一下登陆的用户名或者密码，可以输入
 
-#+begin_src cmd
-D:\SourceCodes\Python\csust-network-login> .\log2network.py -n
-#+end_src
+#+begin_example
+D:\SourceCodes\Python\csust-network-login> python .\log2network.py -n
+#+end_example
 
 也可以输入 -h 来获取帮助
 
-#+begin_src 
-D:\SourceCodes\Python\csust-network-login> .\log2network.py -h
-#+end_src
+#+begin_example
+D:\SourceCodes\Python\csust-network-login> python .\log2network.py -h
+#+end_example
 
 ---
 
@@ -60,13 +68,17 @@ D:\SourceCodes\Python\csust-network-login> .\log2network.py -h
 ** MacOS
 没有用过MacOS，但是应该和Linux差不多，可以通过双击运行也可以直接命令行运行。
 
+还是应该先安装python还有运行 =pip install requests=
+
 打开终端，通过cd进入这个目录，这是一个Python程序，可以跨平台使用，所以使用方法和
 windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linux里面的斜杠是正斜
 杠，在 ~右Shift~ 的左边那个按键上面，例如下面这样：
 
-#+begin_src sh
-~/csust-network-login $ ./log2network.py
-#+end_src
+#+begin_example
+~/csust-network-login $
+#+end_example
+
+但是其实都是一样的，我们要输入东西的区域是$符号右边，输入的内容和windows一样，只是将"\"变成"/"。
 
 也可以尝试一下双击运行，参考上面说的windows平台上面的使用方法。
 ** Linux
