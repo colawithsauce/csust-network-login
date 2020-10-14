@@ -55,8 +55,8 @@ D:\SourceCodes\Python\csust-network-login> python .\log2network.py -h
 
 ---
 
-上面的方法太过于麻烦，简单粗暴的方法就是直接双击运行，然后在按照提示输入学号与用
-户名。
+上面的方法太过于麻烦，简单粗暴的方法就是直接双击 =log2network.cmd= 运行，然后在按
+照提示输入学号与用户名。
 
 如果输入错误或者想要更换号码，就把目录下面的 =loginData.json= 删除再双击运行。
 
