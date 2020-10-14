@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 import sys
+import os
 import socket
 import datetime
 import re
@@ -8,8 +9,9 @@ import argparse
 import getpass
 import json
 import base64
-import requests
 import platform
+import requests
+
 
 
 def exitProgram(exit_code):
@@ -158,7 +160,8 @@ if __name__ == "__main__":
         "Reading user data from the keyboard, rather than configuration file")
 
     options = parser.parse_args()
-    config_file_name = options.config_file
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    config_file_name = dir_path + "/" + options.config_file
     use_new_account = options.new_account
     uname, passwd = False, False
 
