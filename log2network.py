@@ -15,7 +15,7 @@ import platform
 def exitProgram(exit_code):
     sysstr = platform.system()
     if sysstr == "Windows":
-        input("程序执行完毕，按任意键退出...")
+        input("程序执行完毕，按回车键退出...")
     sys.exit(exit_code)
 
 
