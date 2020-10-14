@@ -13,6 +13,7 @@
 ** Windows
 首先根安装python，可以自己百度如何安装。
 
+---
 
 然后用文件管理器打开这个文件夹，然后在文件导航栏（就像浏览器的网址栏，是显示目前
 的文件夹位置的地方，比如说 ~D:\ > SourceCodes > Python~ ）里面输入cmd或者
@@ -23,8 +24,6 @@ lllllpowershell回车，进入命令行。
 #+begin_src cmd
 D:\SourceCodes\Python\csust-network-login> .\log2network.py 
 #+end_src
-
-
 
 如果想更改一下登陆的用户名或者密码，可以输入
 
@@ -38,6 +37,7 @@ D:\SourceCodes\Python\csust-network-login> .\log2network.py -n
 D:\SourceCodes\Python\csust-network-login> .\log2network.py -h
 #+end_src
 
+---
 
 上面的方法太过于麻烦，简单粗暴的方法就是直接双击运行，然后在按照提示输入学号与用
 户名。
@@ -59,7 +59,6 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 #+begin_src sh
 ~/csust-network-login $ ./log2network.py
 #+end_src
-
 
 也可以尝试一下双击运行，参考上面说的windows平台上面的使用方法。
 ** Linux
