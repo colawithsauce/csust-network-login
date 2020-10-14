@@ -216,8 +216,8 @@ if __name__ == "__main__":
 
     print("Trying to log in...")
     # Login Network
-    for i in range(1, 3):
-        print("Trying the {}th time".format(i))
+    for i in range(3):
+        print("Trying the {}th time".format(i+1))
         loginNetwork(uname, passwd)
         if deviceOnline():
             print("登陆成功!")
