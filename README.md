@@ -1,22 +1,22 @@
 
 # Table of Contents
 
-1.  [应用场景](#orgcbec336)
-2.  [功能](#org9d6df5a)
-3.  [使用方法](#org8eaf579)
-    1.  [Windows](#orgf8c4359)
-    2.  [MacOS](#org1e36885):未经测试:
-    3.  [Linux](#org59983bc)
-4.  [程序解释](#orgda9f9fe)
-5.  [可能出现的问题](#org6c63661)
-    1.  [为什么我输入不了密码？](#orgbd5641d)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org7ac6e18)
-6.  [待办](#org2164334)
-7.  [感谢](#org093d106)
+1.  [应用场景](#org71df4f5)
+2.  [功能](#org9832314)
+3.  [使用方法](#orgdeb79d3)
+    1.  [Windows](#org40284c0)
+    2.  [MacOS](#orge88e959):未经测试:
+    3.  [Linux](#orgcdaf940)
+4.  [程序解释](#org28e8f83)
+5.  [可能出现的问题](#org4f292a3)
+    1.  [为什么我输入不了密码？](#org314f816)
+    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org339bdb8)
+6.  [待办 <code>[1/6]</code>](#orgc600b20)
+7.  [感谢](#orgc822708)
 
 
 
-<a id="orgcbec336"></a>
+<a id="org71df4f5"></a>
 
 # 应用场景
 
@@ -26,7 +26,7 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org9d6df5a"></a>
+<a id="org9832314"></a>
 
 # 功能
 
@@ -34,12 +34,12 @@
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="org8eaf579"></a>
+<a id="orgdeb79d3"></a>
 
 # 使用方法
 
 
-<a id="orgf8c4359"></a>
+<a id="org40284c0"></a>
 
 ## Windows
 
@@ -103,7 +103,7 @@ Windows 的命令提示符长这样子：
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="org1e36885"></a>
+<a id="orge88e959"></a>
 
 ## MacOS     :未经测试:
 
@@ -122,7 +122,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="org59983bc"></a>
+<a id="orgcdaf940"></a>
 
 ## Linux
 
@@ -158,7 +158,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
         ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
 
 
-<a id="orgda9f9fe"></a>
+<a id="org28e8f83"></a>
 
 # 程序解释
 
@@ -181,12 +181,12 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
 
-<a id="org6c63661"></a>
+<a id="org4f292a3"></a>
 
 # 可能出现的问题
 
 
-<a id="orgbd5641d"></a>
+<a id="org314f816"></a>
 
 ## 为什么我输入不了密码？
 
@@ -195,7 +195,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="org7ac6e18"></a>
+<a id="org339bdb8"></a>
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -206,9 +206,9 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="org2164334"></a>
+<a id="orgc600b20"></a>
 
-# 待办
+# 待办 <code>[1/6]</code>
 
 -   [ ] 将其编译为可执行文件：
 
@@ -220,7 +220,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     目前因为GET的回应只有HTML文件，服务器返回的账号不存在，密码错误等信息都是通过
     js加载的，所以只要找到一个得到那些js文件的执行结果的方法就可以解决这个问题了。
 
--   [ ] 完善Linux相关的使用方法：
+-   [X] 完善Linux相关的使用方法：
 
     我并没有用Linux的人就一定什么都懂的意思，因为我自己也在使用Linux。
 
@@ -247,7 +247,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     提升自动化程度
 
 
-<a id="org093d106"></a>
+<a id="orgc822708"></a>
 
 # 感谢
 
