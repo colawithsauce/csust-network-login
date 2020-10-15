@@ -204,7 +204,7 @@ if __name__ == "__main__":
 
     else:
         uname = input("Enter the Student ID:")
-        passwd = getpass.getpass("Enter the password (for security no echo):")
+        passwd = getpass.getpass("Enter the Password (for security no echo):")
         write_if = yes_or_no("Write data to the configuration file?")
         if write_if:
             config_file = open(config_file_name, "w+")

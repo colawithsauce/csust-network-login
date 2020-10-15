@@ -1,22 +1,23 @@
 
 # Table of Contents
 
-1.  [应用场景](#org91fcf50)
-2.  [功能](#org0e4529b)
-3.  [使用方法](#orgcaabb10)
-    1.  [Windows](#org269b22f)
-    2.  [MacOS](#orge847c73):未经测试:
-    3.  [Linux](#org39e4811)
-4.  [程序解释](#orga05fef6)
-5.  [可能出现的问题](#orga7ca30b)
-    1.  [为什么我输入不了密码？](#orgc06d17b)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org0c6a349)
-6.  [待办 <code>[1/6]</code>](#org3bc0e39)
-7.  [感谢](#orgddd5eee)
+1.  [应用场景](#orgbed0167)
+2.  [功能](#org16dc9ba)
+3.  [使用方法](#orge0c843d)
+    1.  [Windows](#org4451add)
+    2.  [MacOS](#org82a1bdb):未经测试:
+    3.  [Linux](#org8d0b2db)
+4.  [程序解释](#orgf992b1d)
+5.  [可能出现的问题](#org0e6bd1d)
+    1.  [为什么我输入不了密码？](#org81688d7)
+    2.  [我不在意安全，可以让我可以明文输入密码吗？](#orgaaa82e2)
+    3.  [我看不懂英语怎么办？](#orgf87b78e)
+6.  [待办 <code>[1/6]</code>](#org03742e2)
+7.  [感谢](#org155fca3)
 
 
 
-<a id="org91fcf50"></a>
+<a id="orgbed0167"></a>
 
 # 应用场景
 
@@ -26,7 +27,7 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org0e4529b"></a>
+<a id="org16dc9ba"></a>
 
 # 功能
 
@@ -34,12 +35,12 @@
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="orgcaabb10"></a>
+<a id="orge0c843d"></a>
 
 # 使用方法
 
 
-<a id="org269b22f"></a>
+<a id="org4451add"></a>
 
 ## Windows
 
@@ -104,7 +105,7 @@ Windows 的命令提示符长这样子：
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="orge847c73"></a>
+<a id="org82a1bdb"></a>
 
 ## MacOS     :未经测试:
 
@@ -123,7 +124,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="org39e4811"></a>
+<a id="org8d0b2db"></a>
 
 ## Linux
 
@@ -159,7 +160,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
         ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
 
 
-<a id="orga05fef6"></a>
+<a id="orgf992b1d"></a>
 
 # 程序解释
 
@@ -182,12 +183,12 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
 
-<a id="orga7ca30b"></a>
+<a id="org0e6bd1d"></a>
 
 # 可能出现的问题
 
 
-<a id="orgc06d17b"></a>
+<a id="org81688d7"></a>
 
 ## 为什么我输入不了密码？
 
@@ -196,7 +197,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="org0c6a349"></a>
+<a id="orgaaa82e2"></a>
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -207,7 +208,23 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="org3bc0e39"></a>
+<a id="orgf87b78e"></a>
+
+## 我看不懂英语怎么办？
+
+因为我本来计划是在Linux的tty上面使用的，而终端没有办法用浏览器登录、显示中文也非
+常麻烦，如果不打补丁的话中文会变成白方块。后面发现这个在桌面系统下面也比点鼠标要
+方便，但是毕竟有的时候难免需要进入tty做事情，所以还是决定将语言更换为英文。
+
+所以虽然第一版是中文输出与提示，但是后面经过考虑改成了英语提示，毕竟主要是给自己
+用然后再去满足别人的需要。
+
+如果实在看不懂的话，Student ID就是学号，Password就是密码，万一它显示[Y/n]就输入Y
+然后回车（如果只是双击 `log.cmd` 运行是不会提示让你输入[Y/n]的），其它的输出都没有
+必要看明白，它们作用只是让人知道程序现在运行到哪里了。
+
+
+<a id="org03742e2"></a>
 
 # 待办 <code>[1/6]</code>
 
@@ -248,7 +265,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     提升自动化程度
 
 
-<a id="orgddd5eee"></a>
+<a id="org155fca3"></a>
 
 # 感谢
 
