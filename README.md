@@ -1,21 +1,22 @@
 
 # Table of Contents
 
-1.  [应用场景](#orgcd8faf8)
-2.  [功能](#org0831bdc)
-3.  [使用方法](#orgb8d2486)
-    1.  [Windows](#orgc2ccbdd)
-    2.  [MacOS](#org06e4aa5):未经测试:
-    3.  [Linux](#org358cef0)
-4.  [可能出现的问题](#orgf3dabf2)
-    1.  [为什么我输入不了密码？](#org17d6aa8)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org1af3202)
-5.  [待办](#org7d17724)
-6.  [感谢](#org1370713)
+1.  [应用场景](#orgcbec336)
+2.  [功能](#org9d6df5a)
+3.  [使用方法](#org8eaf579)
+    1.  [Windows](#orgf8c4359)
+    2.  [MacOS](#org1e36885):未经测试:
+    3.  [Linux](#org59983bc)
+4.  [程序解释](#orgda9f9fe)
+5.  [可能出现的问题](#org6c63661)
+    1.  [为什么我输入不了密码？](#orgbd5641d)
+    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org7ac6e18)
+6.  [待办](#org2164334)
+7.  [感谢](#org093d106)
 
 
 
-<a id="orgcd8faf8"></a>
+<a id="orgcbec336"></a>
 
 # 应用场景
 
@@ -25,7 +26,7 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org0831bdc"></a>
+<a id="org9d6df5a"></a>
 
 # 功能
 
@@ -33,12 +34,12 @@
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="orgb8d2486"></a>
+<a id="org8eaf579"></a>
 
 # 使用方法
 
 
-<a id="orgc2ccbdd"></a>
+<a id="orgf8c4359"></a>
 
 ## Windows
 
@@ -102,7 +103,7 @@ Windows 的命令提示符长这样子：
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="org06e4aa5"></a>
+<a id="org1e36885"></a>
 
 ## MacOS     :未经测试:
 
@@ -121,12 +122,47 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="org358cef0"></a>
+<a id="org59983bc"></a>
 
 ## Linux
 
-用Linux的学弟学妹可以考虑看看源代码，里面的逻辑非常简单，就是有两个地方有一点麻
-烦：
+用Linux的学弟学妹可以考虑看看源代码，然后写一个更好的让我用233。
+
+-   安装Python
+
+    for archlinux:
+
+        pacman -S python3 git
+
+    for ubuntu:
+
+        apt-get install python3 git
+
+-   安装依赖
+
+        pip install requests
+
+-   获取源码
+
+        git clone https://gitee.com/colawithsauce/csust-network-login.git
+
+-   创建软连接
+
+        # 如果 ~/.local/bin 不存在就创建
+        if [ ! -d ~/.local/bin ]; then mkdir -p ~/.local/bin; fi
+
+        # 如果 ~/.local/bin 不在PATH中就加入
+        echo ${PATH} | grep ./local/bin || echo "export PATH = \${PATH}:~/.local/bin" | tee -a ~/.bashrc
+
+        # 连接文件到目标
+        ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
+
+
+<a id="orgda9f9fe"></a>
+
+# 程序解释
+
+逻辑非常简单，就是获取账号密码然后登陆而已，就是有两个地方有一点麻烦：
 
 1.  登录url的获取：
 
@@ -144,15 +180,13 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     python 的 base64 函数的输入参数与返回值都是bytes类型，而密码是str类型，而写入
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
-然后写一个更好的让我用233。
 
-
-<a id="orgf3dabf2"></a>
+<a id="org6c63661"></a>
 
 # 可能出现的问题
 
 
-<a id="org17d6aa8"></a>
+<a id="orgbd5641d"></a>
 
 ## 为什么我输入不了密码？
 
@@ -161,7 +195,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="org1af3202"></a>
+<a id="org7ac6e18"></a>
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -172,7 +206,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="org7d17724"></a>
+<a id="org2164334"></a>
 
 # 待办
 
@@ -213,7 +247,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     提升自动化程度
 
 
-<a id="org1370713"></a>
+<a id="org093d106"></a>
 
 # 感谢
 
