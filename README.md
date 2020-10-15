@@ -1,22 +1,22 @@
 
 # Table of Contents
 
-1.  [应用场景](#org71df4f5)
-2.  [功能](#org9832314)
-3.  [使用方法](#orgdeb79d3)
-    1.  [Windows](#org40284c0)
-    2.  [MacOS](#orge88e959):未经测试:
-    3.  [Linux](#orgcdaf940)
-4.  [程序解释](#org28e8f83)
-5.  [可能出现的问题](#org4f292a3)
-    1.  [为什么我输入不了密码？](#org314f816)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org339bdb8)
-6.  [待办 <code>[1/6]</code>](#orgc600b20)
-7.  [感谢](#orgc822708)
+1.  [应用场景](#org91fcf50)
+2.  [功能](#org0e4529b)
+3.  [使用方法](#orgcaabb10)
+    1.  [Windows](#org269b22f)
+    2.  [MacOS](#orge847c73):未经测试:
+    3.  [Linux](#org39e4811)
+4.  [程序解释](#orga05fef6)
+5.  [可能出现的问题](#orga7ca30b)
+    1.  [为什么我输入不了密码？](#orgc06d17b)
+    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org0c6a349)
+6.  [待办 <code>[1/6]</code>](#org3bc0e39)
+7.  [感谢](#orgddd5eee)
 
 
 
-<a id="org71df4f5"></a>
+<a id="org91fcf50"></a>
 
 # 应用场景
 
@@ -26,7 +26,7 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org9832314"></a>
+<a id="org0e4529b"></a>
 
 # 功能
 
@@ -34,12 +34,12 @@
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="orgdeb79d3"></a>
+<a id="orgcaabb10"></a>
 
 # 使用方法
 
 
-<a id="org40284c0"></a>
+<a id="org269b22f"></a>
 
 ## Windows
 
@@ -53,7 +53,8 @@
 等到又重新出现 `C:\>` 及类似的提示符，说明程序执行完毕，可以输入 `exit` 退出，也可以
 直接点X退出命令提示符。
 
-&#x2014;
+---
+
 然后用文件管理器打开这个文件夹，然后在文件导航栏（就像浏览器的网址栏，是显示目前
 的文件夹位置的地方，比如说 `D:\ > SourceCodes > Python` ）里面输入cmd或者
 powershell回车，进入命令行。
@@ -77,7 +78,7 @@ Windows 的命令提示符长这样子：
 
     D:\SourceCodes\Python\csust-network-login> python .\log2network.py -h
 
-&#x2014;
+---
 
 上面的方法太过于麻烦，简单粗暴的方法:
 
@@ -103,7 +104,7 @@ Windows 的命令提示符长这样子：
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="orge88e959"></a>
+<a id="orge847c73"></a>
 
 ## MacOS     :未经测试:
 
@@ -122,7 +123,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="orgcdaf940"></a>
+<a id="org39e4811"></a>
 
 ## Linux
 
@@ -158,7 +159,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
         ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
 
 
-<a id="org28e8f83"></a>
+<a id="orga05fef6"></a>
 
 # 程序解释
 
@@ -181,12 +182,12 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
 
-<a id="org4f292a3"></a>
+<a id="orga7ca30b"></a>
 
 # 可能出现的问题
 
 
-<a id="org314f816"></a>
+<a id="orgc06d17b"></a>
 
 ## 为什么我输入不了密码？
 
@@ -195,7 +196,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="org339bdb8"></a>
+<a id="org0c6a349"></a>
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -206,7 +207,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="orgc600b20"></a>
+<a id="org3bc0e39"></a>
 
 # 待办 <code>[1/6]</code>
 
@@ -247,7 +248,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     提升自动化程度
 
 
-<a id="orgc822708"></a>
+<a id="orgddd5eee"></a>
 
 # 感谢
 
