@@ -1,23 +1,23 @@
 
 # Table of Contents
 
-1.  [应用场景](#org0b171c1)
-2.  [功能](#org7099bc6)
-3.  [使用方法](#org21d4740)
-    1.  [Windows](#org3e8b68a)
-    2.  [MacOS](#orgd522032):未经测试:
-    3.  [Linux](#org3bd3adf)
-4.  [程序解释](#org11253d6)
-5.  [可能出现的问题](#org3f86c00)
-    1.  [为什么我输入不了密码？](#org028ddf4)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org708dd0e)
-    3.  [我看不懂英语怎么办？](#org4e8f5d5)
-6.  [待办 <code>[1/6]</code>](#orgacd8b44)
-7.  [感谢](#org1acfd08)
+1.  [应用场景](#org7ff55de)
+2.  [功能](#org62df5b9)
+3.  [使用方法](#org0aee668)
+    1.  [Windows](#orge065da2)
+    2.  [MacOS](#orgc7d0839):未经测试:
+    3.  [Linux](#org85267cb)
+4.  [程序解释](#org0cf2cea)
+5.  [可能出现的问题](#org6a462dd)
+    1.  [为什么我输入不了密码？](#org9f4a571)
+    2.  [我不在意安全，可以让我可以明文输入密码吗？](#org9215853)
+    3.  [我看不懂英语怎么办？](#orgfd37d46)
+6.  [待办 <code>[1/6]</code>](#org3143086)
+7.  [感谢](#orgdd46179)
 
 
 
-<a id="org0b171c1"></a>
+<a id="org7ff55de"></a>
 
 # 应用场景
 
@@ -27,7 +27,7 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org7099bc6"></a>
+<a id="org62df5b9"></a>
 
 # 功能
 
@@ -35,12 +35,12 @@
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="org21d4740"></a>
+<a id="org0aee668"></a>
 
 # 使用方法
 
 
-<a id="org3e8b68a"></a>
+<a id="orge065da2"></a>
 
 ## Windows
 
@@ -105,7 +105,7 @@ Windows 的命令提示符长这样子：
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="orgd522032"></a>
+<a id="orgc7d0839"></a>
 
 ## MacOS     :未经测试:
 
@@ -124,7 +124,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="org3bd3adf"></a>
+<a id="org85267cb"></a>
 
 ## Linux
 
@@ -148,6 +148,9 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 
         git clone https://gitee.com/colawithsauce/csust-network-login.git
 
+        # 如果想要切换到开发分支
+        cd csust-network-login && git checkout develop && cd ..
+
 -   创建软连接
 
         # 如果 ~/.local/bin 不存在就创建
@@ -160,7 +163,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
         ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
 
 
-<a id="org11253d6"></a>
+<a id="org0cf2cea"></a>
 
 # 程序解释
 
@@ -183,12 +186,12 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
 
-<a id="org3f86c00"></a>
+<a id="org6a462dd"></a>
 
 # 可能出现的问题
 
 
-<a id="org028ddf4"></a>
+<a id="org9f4a571"></a>
 
 ## 为什么我输入不了密码？
 
@@ -197,7 +200,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="org708dd0e"></a>
+<a id="org9215853"></a>
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -208,7 +211,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="org4e8f5d5"></a>
+<a id="orgfd37d46"></a>
 
 ## 我看不懂英语怎么办？
 
@@ -224,7 +227,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 必要看明白，它们作用只是让人知道程序现在运行到哪里了。
 
 
-<a id="orgacd8b44"></a>
+<a id="org3143086"></a>
 
 # 待办 <code>[1/6]</code>
 
@@ -265,7 +268,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     提升自动化程度
 
 
-<a id="org1acfd08"></a>
+<a id="orgdd46179"></a>
 
 # 感谢
 
