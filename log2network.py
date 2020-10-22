@@ -7,11 +7,11 @@ import datetime
 import re
 import argparse
 import getpass
+import time
 import json
 import base64
 import platform
 import requests
-
 
 
 def exitProgram(exit_code):
@@ -68,7 +68,8 @@ def deviceOnline():
 
 def loginNetwork(name, passwd):
     "Simulate login"
-    log_file = open("login.log", "a")
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    log_file = open(dir_path + "/login.log", "a")
     stdout_backup = sys.stdout
     sys.stdout = log_file
     # Get Login Page
@@ -137,41 +138,8 @@ def loginNetwork(name, passwd):
         log_file.close()
 
 
-if __name__ == "__main__":
-    # DONE: json store, base64 decode, and add argument --no-config-file
-    # DONE: Surpport read and write with json
-    parser = argparse.ArgumentParser(
-        description="CSUST campus network login script",
-        epilog=
-        "The default configuration file which reads the user name and password to log in, if the configuration file does not exist or missing items, read user input from"
-    )
-
-    parser.add_argument(
-        '-c',
-        '--config-file',
-        action="store",
-        default="loginData.json",
-        help="Specify the configuration file, 'loginData.json' by default")
-    parser.add_argument(
-        '-n',
-        '--new-account',
-        action="store_true",
-        help=
-        "Reading user data from the keyboard, rather than configuration file")
-
-    options = parser.parse_args()
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    config_file_name = dir_path + "/" + options.config_file
-    use_new_account = options.new_account
-    uname, passwd = False, False
-
-    # Only run when offline
-    is_online = deviceOnline()
-    if is_online:
-        print("Already connected to the Internet")
-        exitProgram(0)
-
-    # Get login datas
+def get_login_data(use_new_account, config_file_name):
+    "Get login datas"
     # base64 它的参数是byte类型，返回的值也是byte类型，所以需要在存储的时候对string进行byte编码，在读取的时候对byte解码。
     # 写入json文件的时候也是只能写入string而不能写入byte，所以在base64编码之后还要将其string化。
     if not use_new_account:
@@ -217,14 +185,70 @@ if __name__ == "__main__":
             # Close file
             config_file.close()
 
-    print("Trying to log in...")
-    # Login Network
-    for i in range(3):
-        print("Trying the {}th time".format(i+1))
+    return [uname, passwd]
+
+
+def login(uname, passwd, times):
+    "Try to login network TIMES times, with uname and passwd."
+    for i in range(times):
+        print("Trying the {}_th time".format(i + 1))
         loginNetwork(uname, passwd)
         if deviceOnline():
-            print("登陆成功!")
+            print("Login Successed!")
+            return 0
+    print("{} login attempts all failed，Check if the connection to\
+    csust-(dx|bg|lt) well, or if the password is correct".format(times))
+    return 1
+
+
+if __name__ == "__main__":
+    # DONE: json store, base64 decode, and add argument --no-config-file
+    # DONE: Surpport read and write with json
+    parser = argparse.ArgumentParser(
+        description="CSUST campus network login script",
+        epilog=
+        "The default configuration file which reads the user name and password to log in, if the configuration file does not exist or missing items, read user input from"
+    )
+
+    parser.add_argument(
+        '-c',
+        '--config-file',
+        action="store",
+        default="loginData.json",
+        help="Specify the configuration file, 'loginData.json' by default")
+    parser.add_argument(
+        '-n',
+        '--new-account',
+        action="store_true",
+        help=
+        "Reading user data from the keyboard, rather than configuration file")
+    parser.add_argument('--ensure',
+                        action="store_true",
+                        help="Ensure login state, prevent user offline")
+
+    options = parser.parse_args()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    config_file_name = dir_path + "/" + options.config_file
+    use_new_account = options.new_account
+    ensure_login_flag = options.ensure
+    uname, passwd = False, False
+
+    # Only run when offline
+    if deviceOnline():
+        print("Already connected to the Internet")
+        if not ensure_login_flag:
             exitProgram(0)
-    print("3 login attempts all failed，Check if the connection to\
-    csust-(dx|bg|lt) well, or if the password is correct")
-    exitProgram(1)
+
+    [uname, passwd] = get_login_data(use_new_account, config_file_name)
+
+    if not ensure_login_flag:
+        print("Trying to log in...")
+        EXITSTATE = login(uname, passwd, 3)
+        exitProgram(EXITSTATE)
+    else:
+        print("Ensureing your network connection.")
+        while True:
+            if not deviceOnline():
+                print("Device had off line! Reconnecting ...")
+                login(uname, passwd, 3)
+            time.sleep(3)
