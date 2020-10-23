@@ -1,3 +1,7 @@
 /loginData.json
 /login.log
 *.org
+/__pycache__
+/build
+*.spec
+/dist/

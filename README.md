@@ -1,25 +1,27 @@
 
 # Table of Contents
 
-1.  [应用场景](#org184d501)
-2.  [功能](#org45bc7f9)
-3.  [使用方法](#org9c719fd)
-    1.  [Windows](#org23ceb7f)
-    2.  [MacOS](#org63f6e29):未经测试:
-    3.  [Linux](#orgdc0379c)
-        1.  [Linux下的安装过程](#org4f4a53a)
-        2.  [Linux上的使用技巧](#org5aaf465)
-4.  [程序解释](#org00f4e50)
-5.  [可能出现的问题](#orgcc48091)
-    1.  [为什么我输入不了密码？](#org1b474b6)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#orgebe6701)
-    3.  [我看不懂英语怎么办？](#orgb0f762d)
-6.  [待办 <code>[3/4]</code>](#org00062d2)
-7.  [感谢](#orgd758685)
+1.  [应用场景](#org097e560)
+2.  [功能](#org0345f38)
+3.  [使用方法](#org3c46f8d)
+    1.  [Windows](#org33a858e)
+        1.  [使用源代码运行方法](#org8420962)
+        2.  [exe格式文件运行方法（推荐）](#org7bdb83d)
+    2.  [MacOS](#orgd1d95dc):未经测试:
+    3.  [Linux](#org7723dc3)
+        1.  [Linux下的安装过程](#org8b2cdd0)
+        2.  [Linux上的使用技巧](#org1e27606)
+4.  [程序解释](#orgc8907da)
+5.  [可能出现的问题](#orgcbd93a9)
+    1.  [为什么我输入不了密码？](#org7fd2686)
+    2.  [我不在意安全，可以让我可以明文输入密码吗？](#orgd9d6c49)
+    3.  [我看不懂英语怎么办？](#org9d1e7a3)
+6.  [待办 <code>[3/4]</code>](#org5d5f1b3)
+7.  [感谢](#orgb83b3b0)
 
 
 
-<a id="org184d501"></a>
+<a id="org097e560"></a>
 
 # 应用场景
 
@@ -29,7 +31,7 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org45bc7f9"></a>
+<a id="org0345f38"></a>
 
 # 功能
 
@@ -37,14 +39,19 @@
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="org9c719fd"></a>
+<a id="org3c46f8d"></a>
 
 # 使用方法
 
 
-<a id="org23ceb7f"></a>
+<a id="org33a858e"></a>
 
 ## Windows
+
+
+<a id="org8420962"></a>
+
+### 使用源代码运行方法
 
 首先根安装python，可以自己百度如何安装。
 
@@ -101,13 +108,24 @@ Windows 的命令提示符长这样子：
 
 如果输入错误或者想要更换号码，就把目录下面的 `loginData.json` 删除再双击运行。
 
+如果想要一直保持登录，就点击 `ensureNetwork.cmd`
+
 程序会生成两个文件
 
 -   loginData.json 配置文件，存储了学号与密码
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="org63f6e29"></a>
+<a id="org7bdb83d"></a>
+
+### exe格式文件运行方法（推荐）
+
+阅读说明，按照需要，直接下载[文件](https://github.com/colawithsauce/csust-network-login/releases/tag/v1.0)放在一个文件夹里面，然后双击运行，程序会在同一个
+文件夹下面生成两个文件，一个日志文件，另一个是配置文件，因此如果文件夹内多了两个
+文件，不必因此感到恐慌。
+
+
+<a id="orgd1d95dc"></a>
 
 ## MacOS     :未经测试:
 
@@ -126,14 +144,14 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="orgdc0379c"></a>
+<a id="org7723dc3"></a>
 
 ## Linux
 
 用Linux的学弟学妹可以考虑看看源代码，然后写一个更好的让我用233。
 
 
-<a id="org4f4a53a"></a>
+<a id="org8b2cdd0"></a>
 
 ### Linux下的安装过程
 
@@ -170,7 +188,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
         ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
 
 
-<a id="org5aaf465"></a>
+<a id="org1e27606"></a>
 
 ### Linux上的使用技巧
 
@@ -189,7 +207,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     这是我预留的一个不通过配置文件登陆的方法，而且它还会问用户是否需要写入配置文件。
 
 
-<a id="org00f4e50"></a>
+<a id="orgc8907da"></a>
 
 # 程序解释
 
@@ -212,12 +230,12 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
 
-<a id="orgcc48091"></a>
+<a id="orgcbd93a9"></a>
 
 # 可能出现的问题
 
 
-<a id="org1b474b6"></a>
+<a id="org7fd2686"></a>
 
 ## 为什么我输入不了密码？
 
@@ -226,7 +244,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="orgebe6701"></a>
+<a id="orgd9d6c49"></a>
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -237,7 +255,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="orgb0f762d"></a>
+<a id="org9d1e7a3"></a>
 
 ## 我看不懂英语怎么办？
 
@@ -253,7 +271,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 必要看明白，它们作用只是让人知道程序现在运行到哪里了。
 
 
-<a id="org00062d2"></a>
+<a id="org5d5f1b3"></a>
 
 # [ ] 待办 <code>[3/4]</code>
 
@@ -303,7 +321,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     感觉现在代码的主逻辑还是不太干净，需要再减少一点东西保持干净。
 
 
-<a id="orgd758685"></a>
+<a id="orgb83b3b0"></a>
 
 # 感谢
 
