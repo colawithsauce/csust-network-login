@@ -1,28 +1,4 @@
 
-# Table of Contents
-
-1.  [应用场景](#org097e560)
-2.  [功能](#org0345f38)
-3.  [使用方法](#org3c46f8d)
-    1.  [Windows](#org33a858e)
-        1.  [使用源代码运行方法](#org8420962)
-        2.  [exe格式文件运行方法（推荐）](#org7bdb83d)
-    2.  [MacOS](#orgd1d95dc):未经测试:
-    3.  [Linux](#org7723dc3)
-        1.  [Linux下的安装过程](#org8b2cdd0)
-        2.  [Linux上的使用技巧](#org1e27606)
-4.  [程序解释](#orgc8907da)
-5.  [可能出现的问题](#orgcbd93a9)
-    1.  [为什么我输入不了密码？](#org7fd2686)
-    2.  [我不在意安全，可以让我可以明文输入密码吗？](#orgd9d6c49)
-    3.  [我看不懂英语怎么办？](#org9d1e7a3)
-6.  [待办 <code>[3/4]</code>](#org5d5f1b3)
-7.  [感谢](#orgb83b3b0)
-
-
-
-<a id="org097e560"></a>
-
 # 应用场景
 
 1.  懒人不想直接打开浏览器连网，想一键连
@@ -31,29 +7,27 @@
 4.  觉得一键登录校园网好玩
 
 
-<a id="org0345f38"></a>
-
 # 功能
 
 1.  首次设置之后可以根据生成的配置文件自动登陆
 2.  配置文件密码加密存储，（不过加密方法都写在源代码里面了，加密也只能防下小白吧）
 
 
-<a id="org3c46f8d"></a>
+
 
 # 使用方法
 
 
-<a id="org33a858e"></a>
+
 
 ## Windows
 
 
-<a id="org8420962"></a>
+
 
 ### 使用源代码运行方法
 
-首先根安装python，可以自己百度如何安装。
+首先在微软的应用商店里面找到python3.x(x表示任意一个数字)，点击安装。
 
 安装完成之后在桌面按 `Windows+R` 打开运行，然后输入 `cmd` ，回车，然后在命令提示符中
 输入：
@@ -63,52 +37,14 @@
 等到又重新出现 `C:\>` 及类似的提示符，说明程序执行完毕，可以输入 `exit` 退出，也可以
 直接点X退出命令提示符。
 
----
-
-然后用文件管理器打开这个文件夹，然后在文件导航栏（就像浏览器的网址栏，是显示目前
-的文件夹位置的地方，比如说 `D:\ > SourceCodes > Python` ）里面输入cmd或者
-powershell回车，进入命令行。
-
-Windows 的命令提示符长这样子：
-
-    D:\SourceCodes\Python\csust-network-login>
-
-大于号的左边是当前的目录，而右边就是我们输入命令的地方，下面我将命令提示符也写出
-来了，为了方便表示，如果要用这个方法，只输入大于符号右边的东西就可以了。
-
-如果是第一次使用，可以直接如下输入
-
-    D:\SourceCodes\Python\csust-network-login> python .\log2network.py
-
-如果想更改一下登陆的用户名或者密码，可以输入
-
-    D:\SourceCodes\Python\csust-network-login> python .\log2network.py -n
-
-也可以输入 -h 来获取帮助
-
-    D:\SourceCodes\Python\csust-network-login> python .\log2network.py -h
-
----
-
-上面的方法太过于麻烦，简单粗暴的方法:
-
-1.  首次运行直接双击 `log.cmd` 运行，然后在按照提示输入学号与用户名
-2.  之后运行直接双击 `log.cmd`
-3.  如果需要方便一点的话，可以将 `log.cmd` 发送到桌面快捷方式，注意不能将
-    `log.cmd` 复制或者移动到桌面，而是将其快捷方式发送到桌面，然后之后就双
-    击这个快捷方式就可以了。如果不会的话可以百度如何发送快捷方式。
-4.  <del>Windows有的可能没有显示后缀名，有的同学可能分不清哪个是 `.py` 哪个是 `.cmd` ，这</del>
-    <del>样的话可以看图标，有一个python标志的是 `.py` 文件，图标主要是一个还是两个齿轮背
-    景为一个白框的是 `.cmd` 文件</del>
-
-    已经更名 `log2network.cmd` 为 `log.cmd`
-
-5.  注意 `log.cmd` 与 `log2network.py` 要在同一个目录下，而且建议将这两个放到
-    一个单独的文件夹下面而不是直接放在桌面上，因为程序会在当前目录下面生成2个文件。
+1.  首次运行直接双击 `log2network.cmd` 运行，然后在按照提示输入学号与用户名
+2.  之后运行直接双击 `log2network.cmd`
+3.  如果需要方便一点的话，可以这样做：右键 `log2network.cmd`->“发送到”->“桌面快捷方式”
+4.  Windows有的可能没有显示后缀名，有的同学可能分不清哪个是 `.py` 哪个是 `.cmd` ，这
+    样的话可以看图标，有一个python标志的是 `.py` 文件，图标主要是一个还是两个齿轮背
+    景为一个白框的是 `.cmd` 文件
 
 如果输入错误或者想要更换号码，就把目录下面的 `loginData.json` 删除再双击运行。
-
-如果想要一直保持登录，就点击 `ensureNetwork.cmd`
 
 程序会生成两个文件
 
@@ -116,16 +52,7 @@ Windows 的命令提示符长这样子：
 -   login.log 是日志文件，记录了登陆的记录
 
 
-<a id="org7bdb83d"></a>
 
-### exe格式文件运行方法（推荐）
-
-阅读说明，按照需要，直接下载[文件](https://github.com/colawithsauce/csust-network-login/releases/tag/v1.0)放在一个文件夹里面，然后双击运行，程序会在同一个
-文件夹下面生成两个文件，一个日志文件，另一个是配置文件，因此如果文件夹内多了两个
-文件，不必因此感到恐慌。
-
-
-<a id="orgd1d95dc"></a>
 
 ## MacOS     :未经测试:
 
@@ -144,14 +71,11 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 也可以尝试一下双击(log2network.py)运行，参考上面说的windows平台上面的使用方法。
 
 
-<a id="org7723dc3"></a>
+
 
 ## Linux
 
-用Linux的学弟学妹可以考虑看看源代码，然后写一个更好的让我用233。
-
-
-<a id="org8b2cdd0"></a>
+用Linux的学弟学妹可以考虑看看源代码，然后写一个更好的<del>让我用</del>（已毕业）233。
 
 ### Linux下的安装过程
 
@@ -188,7 +112,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
         ln -sf `pwd`/csust-network-login/log2network.py ~/.local/bin
 
 
-<a id="org1e27606"></a>
+
 
 ### Linux上的使用技巧
 
@@ -207,7 +131,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     这是我预留的一个不通过配置文件登陆的方法，而且它还会问用户是否需要写入配置文件。
 
 
-<a id="orgc8907da"></a>
+
 
 # 程序解释
 
@@ -230,12 +154,12 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
     json文件的时候又需要是str类型，所以decode和encode非常多，让代码看上去有点丑。
 
 
-<a id="orgcbd93a9"></a>
+
 
 # 可能出现的问题
 
 
-<a id="org7fd2686"></a>
+
 
 ## 为什么我输入不了密码？
 
@@ -244,7 +168,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 车吧！
 
 
-<a id="orgd9d6c49"></a>
+
 
 ## 我不在意安全，可以让我可以明文输入密码吗？
 
@@ -255,7 +179,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 暂时没有办法验证，我一直在用Linux，好久没有用Windows了。。。
 
 
-<a id="org9d1e7a3"></a>
+
 
 ## 我看不懂英语怎么办？
 
@@ -271,7 +195,7 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 必要看明白，它们作用只是让人知道程序现在运行到哪里了。
 
 
-<a id="org5d5f1b3"></a>
+
 
 # [ ] 待办 <code>[3/4]</code>
 
@@ -320,8 +244,6 @@ windows一样。只不过windows中目录的斜杠是反斜杠，而MacOS与Linu
 
     感觉现在代码的主逻辑还是不太干净，需要再减少一点东西保持干净。
 
-
-<a id="orgb83b3b0"></a>
 
 # 感谢
 
