@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from genericpath import exists, isfile
 import sys
 import os
 import socket
@@ -230,9 +229,9 @@ if __name__ == "__main__":
 
     options = parser.parse_args()
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    config_file_name = dir_path + "/" + options.config_file
+    config_file_name = os.path.join(dir_path, options.config_file)
     # 当配置文件尚不存在的时候就必然是需要 new_login 的
-    use_new_account = True if os.path.isfile(config_file_name) else options.new_account
+    use_new_account = True if not os.path.exists(config_file_name) else options.new_account
     ensure_login_flag = options.ensure
     [uname, passwd] = get_login_data(use_new_account, config_file_name)
 
